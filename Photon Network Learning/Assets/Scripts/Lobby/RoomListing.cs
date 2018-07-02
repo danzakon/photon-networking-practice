@@ -10,6 +10,8 @@ public class RoomListing : MonoBehaviour {
 		get { return _roomNameText; }
 	}
 
+    public string RoomName { get; private set; }
+
 	public bool Updated { get; set; }
 
 	void Start () {
@@ -32,9 +34,10 @@ public class RoomListing : MonoBehaviour {
 		button.onClick.RemoveAllListeners ();
 	}
 
-	public void SetRoomNameText(string text)
+	public void SetRoomNameText(string _text)
 	{
-		RoomNameText.text = text;
+		RoomName = _text;
+        RoomNameText.text = RoomName;
 	}
 
 }

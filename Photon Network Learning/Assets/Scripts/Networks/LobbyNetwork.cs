@@ -6,8 +6,12 @@ public class LobbyNetwork : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		print ("Connecting to server...");
-		PhotonNetwork.ConnectUsingSettings ("1.0");
+
+        if (!PhotonNetwork.connected)
+        {
+            print("Connecting to server...");
+            PhotonNetwork.ConnectUsingSettings("1.0");
+        }
 
 	}
 

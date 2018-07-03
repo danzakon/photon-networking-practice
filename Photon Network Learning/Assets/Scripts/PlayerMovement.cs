@@ -7,6 +7,7 @@ public class PlayerMovement : Photon.MonoBehaviour {
     private PhotonView PhotonView;
     private Vector3 TargetPosition;
     private Quaternion TargetRotation;
+    public float Health;
 
 	private void Awake()
 	{

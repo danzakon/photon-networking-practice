@@ -14,17 +14,32 @@ public class CreateRoom : MonoBehaviour {
 
     public void OnClick_CreateRoom()
     {
-        RoomOptions roomOptions = new RoomOptions() { IsVisible = true, IsOpen = true, MaxPlayers = 4 };
+        PhotonNetwork.JoinRandomRoom();
+    }
 
-        if (PhotonNetwork.CreateRoom (RoomName.text, roomOptions, TypedLobby.Default)) 
-		{
-			print ("create room successfully sent.");
-		} 
-		else 
-		{
-			print ("create room failed to send");
-		}
-	}
+    private void OnJoinedRoom()
+    {
+        print("joined room " + PhotonNetwork.room.Name);
+        if (PhotonNetwork.playerList.Length == 2)
+        {
+            PhotonNetwork.LoadLevel(1);
+        }
+    }
+
+    private void OnPhotonRandomJoinFailed()
+    {
+        RoomOptions roomOptions = new RoomOptions() { IsVisible = true, IsOpen = true, MaxPlayers = 2 };
+        string randRoomName = Random.Range(10000, 999999999).ToString();
+
+        if (PhotonNetwork.CreateRoom(randRoomName, roomOptions, TypedLobby.Default))
+        {
+            print("created room " + randRoomName);
+        }
+        else
+        {
+            print("create room failed to send");
+        }
+    }
 
 	private void OnPhotonCreateRoomFailed(object[] codeAndMessage)
 	{
@@ -35,5 +50,6 @@ public class CreateRoom : MonoBehaviour {
 	{
 		print ("room created successfully");
 	}
+
 
 }

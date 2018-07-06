@@ -6,7 +6,6 @@ public class LobbyNetwork : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-
         if (!PhotonNetwork.connected)
         {
             print("Connecting to server...");
@@ -25,8 +24,8 @@ public class LobbyNetwork : MonoBehaviour {
 	private void OnJoinedLobby(){
 		print ("Joined lobby");
 
-        if (!PhotonNetwork.inRoom)
-            MainCanvasManager.Instance.LobbyCanvas.transform.SetAsLastSibling();
+        //if (!PhotonNetwork.inRoom)
+            // MainCanvasManager.Instance.LobbyCanvas.transform.SetAsLastSibling();
 	}
 
 

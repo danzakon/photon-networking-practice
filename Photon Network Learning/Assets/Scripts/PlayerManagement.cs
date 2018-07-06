@@ -32,7 +32,7 @@ public class PlayerManagement : MonoBehaviour {
         {
             PlayerStats playerStats = PlayerStats[index];
             playerStats.Health += value;
-            PlayerNetwork.Instance.NewHealth(photonPlayer, playerStats.Health);
+            //PlayerNetwork.Instance.NewHealth(photonPlayer, playerStats.Health);
         }
     }
 
